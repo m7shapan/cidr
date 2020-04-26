@@ -51,6 +51,13 @@ func main() {
 	// Last IP (Decimal): 16777471
 	// Total Host: 256
 
+
+	ip := net.ParseIP("1.0.0.0")
+	fmt.Println(IPv4tod(ip)) // 16777216
+
+	ip := net.ParseIP("2001:4860:4860::8888")
+	fmt.Println(IPv6tod(ip)) // 42541956123769884636017138956568135816
+
 }
 ```
 
