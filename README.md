@@ -58,6 +58,13 @@ func main() {
 	ip := net.ParseIP("2001:4860:4860::8888")
 	fmt.Println(IPv6tod(ip)) // 42541956123769884636017138956568135816
 
+	var i uint32 = 16777216
+	fmt.Println(DtoIPv4(i)) // 1.0.0.0
+
+	b := new(big.Int)
+	b.SetString("42541956123769884636017138956568135816", 10)
+	fmt.Println(DtoIPv6(b)) // 2001:4860:4860::8888
+
 }
 ```
 

@@ -1,6 +1,7 @@
 package cidr
 
 import (
+	"encoding/binary"
 	"math/big"
 	"net"
 )
@@ -29,4 +30,18 @@ func IPv6tod(ip net.IP) *big.Int {
 		return nil
 	}
 	return big.NewInt(0).SetBytes(ip.To16())
+}
+
+func DtoIPv4(i uint32) net.IP {
+	ip := make(net.IP, 4)
+	binary.BigEndian.PutUint32(ip, i)
+
+	return ip
+}
+
+func DtoIPv6(i *big.Int) net.IP {
+	ip := make(net.IP, 16)
+	ip = i.Bytes()
+
+	return ip
 }
